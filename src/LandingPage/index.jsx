@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import Banner from "./components/banner";
 
 const LandingPage = () => {
@@ -11,6 +12,7 @@ const LandingPage = () => {
           "🎉 New arrivals just dropped! Check them out now!",
         ]}
       />
+      <Header />
     </div>
   );
 };
