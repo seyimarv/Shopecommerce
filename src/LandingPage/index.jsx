@@ -1,4 +1,4 @@
-import Banner from "./components";
+import Banner from "./components/banner";
 
 const LandingPage = () => {
   return (

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import PropTypes from "prop-types";
 import { useRef, useEffect, useState } from "react";
-import { gsap, useGSAP } from "../../utils/gsap";
+import { gsap, useGSAP } from "../../../utils/gsap";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 
 const Banner = ({ announcements }) => {
