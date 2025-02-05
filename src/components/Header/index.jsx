@@ -3,6 +3,7 @@ import LinkDropdown from "../LinkDropdown";
 import { FaUser } from "react-icons/fa6";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
+import CurrencyPicker from "../CurrencyPicker";
 
 const Header = () => {
   return (
@@ -24,7 +25,7 @@ const Header = () => {
             </li>
           ))}
           <li>
-            <span>Currency</span>
+            <CurrencyPicker />
           </li>
         </ul>
         <ul className="flex gap-16 w-full flex-1 justify-end">
