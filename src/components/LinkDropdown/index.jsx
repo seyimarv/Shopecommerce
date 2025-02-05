@@ -71,7 +71,7 @@ const LinkDropdown = ({ title, dropdownList, path }) => {
           <a
             key={i}
             href={path}
-            className="px-2 py-2 whitespace-nowrap hover:bg-primary-dark transition-colors text-sm"
+            className="px-2 py-2 whitespace-nowrap text-sm"
           >
             {title}
           </a>

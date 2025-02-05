@@ -1,15 +1,17 @@
-import { Fragment } from "react";
 import navItems from "../../utils/nav-items";
 import LinkDropdown from "../LinkDropdown";
+import { FaUser } from "react-icons/fa6";
+import { FaCartShopping } from "react-icons/fa6";
+import { FaSearch } from "react-icons/fa";
 
 const Header = () => {
   return (
     <header className="py-4 container w-full">
-      <nav className="flex justify-between w-full">
-        <p className="w-[50%]">LOGO</p>
-        <ul className="flex justify-between w-full">
+      <nav className="flex justify-between w-full gap-4 items-center">
+        <p className="flex-1">LOGO</p>
+        <ul className="flex gap-16 w-full flex-2 justify-center">
           {navItems.map(({ title, path, hasDropdown, dropdown }, i) => (
-            <Fragment key={i}>
+            <li key={i}>
               {hasDropdown ? (
                 <LinkDropdown
                   title={title}
@@ -19,8 +21,22 @@ const Header = () => {
               ) : (
                 <a href={path}>{title}</a>
               )}
-            </Fragment>
+            </li>
           ))}
+          <li>
+            <span>Currency</span>
+          </li>
+        </ul>
+        <ul className="flex gap-16 w-full flex-1 justify-end">
+          <li>
+            <FaUser />
+          </li>
+          <li>
+            <FaSearch />
+          </li>
+          <li>
+            <FaCartShopping />
+          </li>
         </ul>
       </nav>
     </header>
