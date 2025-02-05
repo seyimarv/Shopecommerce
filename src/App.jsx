@@ -1,4 +1,5 @@
 import LandingPage from "./LandingPage";
+import '@splidejs/react-splide/css';
 
 function App() {
   return (
