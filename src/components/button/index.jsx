@@ -20,7 +20,7 @@ const Button = ({
     "bg-primary": variant === "filled",
     // "border border-button bg-transparent text-primary": variant === "outline",
     // "bg-[#0c0c0c] text-white border border-[#515151]": variant === "secondary",
-    // "bg-white text-lg text-darker": variant === "tertiary",
+    "bg-[black] text-white": variant === "secondary",
   });
 
   return (

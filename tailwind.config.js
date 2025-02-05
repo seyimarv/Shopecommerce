@@ -31,6 +31,9 @@ export default {
         button: "#212326",
         primary: "#212326",
       },
+      boxShadow: {
+        'outline-icon': '0 0 0px 2px black',
+      },
       fontFamily: {
         sans: ["Ubuntu", "sans-serif"],
         serif: ["Ubuntu", "serif"],
