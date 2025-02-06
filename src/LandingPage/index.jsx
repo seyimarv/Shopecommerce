@@ -54,10 +54,10 @@ const LandingPage = () => {
         <Header />
       </div>
       <HeroSection />
-      <div className="flex flex-col gap-10 pt-10">
-        <CardList lists={sampleLists} showMore />
-        <CardList lists={sampleLists}  showMore />
-        <CardList lists={sampleLists} showMore />
+      <div className="flex flex-col gap-22 pt-22 pb-22">
+        <CardList lists={sampleLists} title="Items on sale" showMore />
+        <CardList lists={sampleLists} title="New Arrivals"  showMore />
+        <CardList lists={sampleLists}  title="Collections" showMore />
       </div>
     </div>
   );
