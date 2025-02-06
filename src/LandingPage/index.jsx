@@ -1,6 +1,31 @@
+import CardList from "../components/CardList";
 import Header from "../components/Header";
 import Banner from "./components/banner/banner";
 import HeroSection from "./components/HeroSection";
+import image from "../assets/life.jpg";
+
+const sampleLists = [
+  {
+    imgSrc: image,
+    title: "Product 1",
+    price: "$10.99",
+  },
+  {
+    imgSrc: image,
+    title: "Product 2",
+    price: "$12.49",
+  },
+  {
+    imgSrc: image,
+    title: "Product 3",
+    price: "$8.99",
+  },
+  {
+    imgSrc: image,
+    title: "Product 4",
+    price: "$15.99",
+  },
+];
 
 const LandingPage = () => {
   return (
@@ -26,6 +51,11 @@ const LandingPage = () => {
         <Header />
       </div>
       <HeroSection />
+      <div className="flex flex-col gap-10 pt-10">
+        <CardList lists={sampleLists} title="Items on sale" showMore />
+        <CardList lists={sampleLists} title="New arrivals" showMore />
+        <CardList lists={sampleLists} title="Collections" showMore />
+      </div>
     </div>
   );
 };

@@ -12,8 +12,8 @@ const Dropdown = ({ options, onSelect, isOpen, onClose }) => {
   return (
     <>
       {isOpen && (
-        <div className="relative z-10 shadow-2xl" ref={ref}>
-          <ul className="absolute top-1 flex flex-col min-w-full shadow-sm max-h-[14rem] overflow-scroll">
+        <div className="relative z-50 shadow-2xl" ref={ref}>
+          <ul className="absolute top-1 flex flex-col min-w-full shadow-sm max-h-[14rem] overflow-scroll bg-[white]">
             {options.map((option, index) => (
               <li
                 key={index}

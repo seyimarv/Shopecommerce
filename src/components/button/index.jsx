@@ -10,10 +10,15 @@ const Button = ({
   variant = "filled",
   Icon,
   small,
+  large
 }) => {
   const baseClasses = clsx(
-    "rounded-md cursor-pointer tracking-widest min-w-[12rem] text-button uppercase text-sm",
-    small ? "px-3 py-2 text-sm" : "px-4 py-2 text-base"
+    "rounded-md cursor-pointer tracking-widest min-w-[12rem] text-button uppercase",
+    small
+      ? "px-3 py-2 text-sm"
+      : large
+      ? "px-5 py-3 text-base"
+      : "px-4 py-2 text-base"
   );
 
   const variantClasses = clsx({
@@ -37,11 +42,12 @@ const Button = ({
           </span>
         )}
         <span className="text-inherit">{children}</span>
-        {isLoading && (
-          {/* <span className="ml-2">
+        {isLoading &&
+          {
+            /* <span className="ml-2">
             <CircularLoader />
-          </span> */}
-        )}
+          </span> */
+          }}
       </span>
     </button>
   );

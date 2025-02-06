@@ -8,7 +8,7 @@ import CurrencyPicker from "../CurrencyPicker";
 
 const Header = () => {
   return (
-    <header className="py-4 container w-full">
+    <header className="py-4 container w-full sticky top-0 z-50">
       <nav className="flex justify-between w-full gap-4 items-center">
         <p className="flex-1">LOGO</p>
         <ul className="flex gap-16 w-full flex-2 justify-center">
