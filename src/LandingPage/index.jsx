@@ -2,26 +2,29 @@ import CardList from "../components/CardList";
 import Header from "../components/Header";
 import Banner from "./components/banner/banner";
 import HeroSection from "./components/HeroSection";
-import image from "../assets/life.jpg";
+import picture1 from "../assets/picture1.jpg";
+import picture2 from "../assets/picture2.jpg";
+import picture3 from "../assets/picture3.jpg";
+import picture4 from "../assets/picture4.jpg";
 
 const sampleLists = [
   {
-    imgSrc: image,
+    imgSrc: picture1,
     title: "Product 1",
     price: "$10.99",
   },
   {
-    imgSrc: image,
+    imgSrc: picture2,
     title: "Product 2",
     price: "$12.49",
   },
   {
-    imgSrc: image,
+    imgSrc: picture3,
     title: "Product 3",
     price: "$8.99",
   },
   {
-    imgSrc: image,
+    imgSrc: picture4,
     title: "Product 4",
     price: "$15.99",
   },
@@ -52,9 +55,9 @@ const LandingPage = () => {
       </div>
       <HeroSection />
       <div className="flex flex-col gap-10 pt-10">
-        <CardList lists={sampleLists} title="Items on sale" showMore />
-        <CardList lists={sampleLists} title="New arrivals" showMore />
-        <CardList lists={sampleLists} title="Collections" showMore />
+        <CardList lists={sampleLists} showMore />
+        <CardList lists={sampleLists}  showMore />
+        <CardList lists={sampleLists} showMore />
       </div>
     </div>
   );

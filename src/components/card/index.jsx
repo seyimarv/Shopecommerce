@@ -60,15 +60,15 @@ const Card = ({ imgSrc, title, price }) => {
 
   return (
     <div
-      className="relative cursor-pointer"
+      className="relative cursor-pointer w-full"
       ref={cardRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="overflow-hidden rounded-sm">
+      <div className="overflow-hidden w-full h-90 rounded-sm">
         <img
           src={imgSrc}
-          className="object-cover w-full h-auto  image"
+          className="object-cover w-full h-full object-center image"
           alt={title}
         />
       </div>
