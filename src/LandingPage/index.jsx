@@ -6,7 +6,7 @@ import picture1 from "../assets/picture1.jpg";
 import picture2 from "../assets/picture2.jpg";
 import picture3 from "../assets/picture3.jpg";
 import picture4 from "../assets/picture4.jpg";
-
+import Testimonials from "./components/Testimonials";
 const sampleLists = [
   {
     imgSrc: picture1,
@@ -47,6 +47,7 @@ const LandingPage = () => {
         <CardList lists={sampleLists} title="Items on sale" showMore />
         <CardList lists={sampleLists} title="New Arrivals" showMore />
         <CardList lists={sampleLists} title="Collections" showMore />
+        <Testimonials />
       </div>
     </div>
   );

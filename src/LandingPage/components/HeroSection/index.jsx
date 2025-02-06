@@ -4,7 +4,7 @@ import Button from "../../../components/button";
 const HeroSection = () => {
   return (
     <section className="">
-      <div className="h-[calc(100vh-5.875rem)] relative">
+      <div className="h-[calc(100vh-6.375rem)] relative">
         <img
           className="w-full object-cover h-full"
           src={image}

@@ -82,7 +82,7 @@ const Banner = ({ announcements }) => {
   };
 
   return (
-    <div className="bg-secondary w-full py-2">
+    <div className="bg-secondary w-full py-4">
       <div className="container flex overflow-hidden">
         <div className="flex w-full flex-nowrap relative" ref={announcementRef}>
           {announcementWidth > 0 &&

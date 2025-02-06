@@ -20,7 +20,7 @@ const Header = () => {
 
           console.log(currentScrollY, lastScrollY.current);
 
-          if (currentScrollY <= 94) {
+          if (currentScrollY <= 102) {
             setIsSticky("initial");
           } else if (currentScrollY < lastScrollY.current) {
             setIsSticky("sticky"); // Scrolling up → Make header sticky
