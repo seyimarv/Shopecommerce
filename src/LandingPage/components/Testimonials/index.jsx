@@ -1,11 +1,12 @@
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useEffect, useRef, useState } from "react";
-import { GrPrevious, GrNext } from "react-icons/gr";
+import { GrNext } from "react-icons/gr";
 import picture1 from "../../../assets/picture1.jpg";
 import picture2 from "../../../assets/picture2.jpg";
 import picture3 from "../../../assets/picture3.jpg";
 import picture4 from "../../../assets/picture4.jpg";
+import StarRating from "../../../components/StarRating";
 
 const testimonials = [
   {
@@ -13,36 +14,42 @@ const testimonials = [
     alt: "Beautiful nature",
     name: "John Doe",
     quote: "This service is absolutely amazing! Highly recommended.",
+    rating: 5,
   },
   {
     url: picture2,
     alt: "City skyline",
     name: "Jane Smith",
     quote: "I've never experienced such great quality and professionalism.",
+    rating: 4,
   },
   {
     url: picture3,
     alt: "Ocean waves",
     name: "Emily Johnson",
     quote: "A truly wonderful experience from start to finish.",
+    rating: 5,
   },
   {
     url: picture4,
     alt: "Mountain view",
     name: "Michael Brown",
     quote: "Fantastic! Will definitely come back again.",
+    rating: 4,
   },
   {
     url: picture2,
     alt: "Dense forest",
     name: "Sophia Williams",
     quote: "Exceeded all my expectations. 5 stars!",
+    rating: 5,
   },
   {
     url: picture3,
     alt: "Desert landscape",
     name: "Daniel Martinez",
     quote: "I am blown away by the attention to detail.",
+    rating: 4,
   },
 ];
 
@@ -79,7 +86,7 @@ const Testimonials = () => {
   return (
     <div className="gallery-with-thumbs relative container max-w-6xl mx-auto">
       <h4 className="text-center text-3xl tracking-wider uppercase -mb-4">
-        Why clients love Shophaul
+        Our Customers love us
       </h4>
 
       {/* Thumbnail Navigation */}
@@ -96,14 +103,13 @@ const Testimonials = () => {
             interval: 3000,
             isNavigation: true,
             focus: "center",
-            
           }}
           aria-label="Thumbnails"
           hasTrack={false}
           className="w-full"
           onMove={(splide) => {
-            console.log("here")
-            console.log(splide.index)
+            console.log("here");
+            console.log(splide.index);
             setActiveIndex(splide.index);
           }}
           //   onMounted={(splide) => {
@@ -150,13 +156,14 @@ const Testimonials = () => {
           <SplideTrack>
             {testimonials.map((image, index) => (
               <SplideSlide key={index}>
-                <div className="max-w-lg mx-auto flex justify-center items-center flex-col font-medium">
-                  <span className="text-lg italic tracking-wider text-center mb-6">
+                <div className="max-w-lg mx-auto flex justify-center items-center flex-col font-light text-md">
+                  <StarRating rating={image?.rating} />
+                  <span className=" italic tracking-wider text-center mb-2">
                     {image.quote}
                   </span>
                   <div className="flex items-center">
                     <span className="w-4 h-[2px] bg-gray-500 inline-block"></span>
-                    <span className="text-gray-500 uppercase ml-2">
+                    <span className="text-sm text-gray-500 uppercase ml-2">
                       {image.name}
                     </span>
                   </div>
