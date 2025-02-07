@@ -41,12 +41,12 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-        <div className="min-w-md">
+        <div className="min-w-sm  ml-auto">
           <h2 className="text-lg">SHOPHAUL</h2>
           <p className="text-gray-400 mt-2">Your one stop shop</p>
           <div className="flex flex-col mt-4">
             <h4 className="text-white uppercase">SUBSCRIBE TO OUR NEWSLETTER</h4>
-            <div className="mt-2 max-w-[24rem] relative">
+            <div className="mt-2 relative">
               <input
                 type="text"
                 className="border border-[#FFFFFF33] rounded-xl py-4 px-4 pr-14 focus:outline-none focus:border-blue-500 h-full bg-transparent w-full"
