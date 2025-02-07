@@ -6,7 +6,7 @@ import Card from "../card";
 const CardList = ({ lists, title, showMore }) => {
   return (
     <section className="container">
-      <p className="text-3xl pb-8 tracking-wider">{title}</p>
+      <p className="text-2xl pb-8 tracking-widest uppercase">{title}</p>
       <div className="w-full flex gap-4">
         {lists.map(({ imgSrc, title, price }, index) => (
           <React.Fragment key={index}>

@@ -8,6 +8,7 @@ import picture3 from "../assets/picture3.jpg";
 import picture4 from "../assets/picture4.jpg";
 import Testimonials from "./components/Testimonials";
 import ValuesList from "./components/Values";
+import Footer from "../components/Footer";
 const sampleLists = [
   {
     imgSrc: picture1,
@@ -51,6 +52,7 @@ const LandingPage = () => {
         <Testimonials />
         <ValuesList />
       </div>
+      <Footer />
     </div>
   );
 };

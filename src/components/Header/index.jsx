@@ -62,7 +62,7 @@ const Header = () => {
                   dropdownList={dropdown}
                 />
               ) : (
-                <a href={path}>{title}</a>
+                <a href={path} className="uppercase">{title}</a>
               )}
             </li>
           ))}
@@ -70,7 +70,7 @@ const Header = () => {
             <CurrencyPicker />
           </li>
         </ul>
-        <ul className="flex gap-16 w-full flex-1 justify-end text-md">
+        <ul className="flex gap-6 w-full flex-1 justify-end text-md">
           <li>
             <CiUser className="text-lg" size={20} />
           </li>

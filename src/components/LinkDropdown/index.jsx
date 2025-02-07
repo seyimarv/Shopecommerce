@@ -60,7 +60,7 @@ const LinkDropdown = ({ title, dropdownList, path }) => {
       onMouseLeave={handleMouseLeave}
       ref={container}
     >
-      <a href={path} className="">
+      <a href={path} className=" uppercase">
         {title}
       </a>
       <div className="relative">

@@ -85,7 +85,7 @@ const Testimonials = () => {
 
   return (
     <div className="gallery-with-thumbs relative container max-w-6xl mx-auto">
-      <h4 className="text-center text-3xl tracking-wider uppercase -mb-4">
+      <h4 className="text-center text-2xl tracking-widest uppercase -mb-4">
         Our Customers love us
       </h4>
 

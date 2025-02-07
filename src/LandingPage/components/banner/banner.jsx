@@ -92,7 +92,7 @@ const Banner = ({ announcements }) => {
                 className="announcement flex-shrink-0 relative"
                 style={{ width: `${announcementWidth}px` }}
               >
-                <p className="text-xs text-primary font-light tracking-wider">
+                <p className="text-xs text-primary font-light tracking-widest">
                   {h}
                 </p>
               </div>

@@ -1,6 +1,7 @@
 import image from "../../../assets/Landing.jpg";
 import Button from "../../../components/button";
 
+
 const HeroSection = () => {
   return (
     <section className="">

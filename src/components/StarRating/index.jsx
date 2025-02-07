@@ -1,4 +1,5 @@
-// Star rating component
+import PropTypes from "prop-types";
+
 const StarRating = ({ rating }) => {
   return (
     <div className="flex items-center gap-1 mb-2">
@@ -16,6 +17,10 @@ const StarRating = ({ rating }) => {
       ))}
     </div>
   );
+};
+
+StarRating.propTypes = {
+  rating: PropTypes.number.isRequired,
 };
 
 export default StarRating;
