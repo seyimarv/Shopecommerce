@@ -23,9 +23,7 @@ const ProductSelector = () => {
             className={`w-8 h-8 rounded-full ${
               color.className
             } flex items-center justify-center border-2 ${
-              selectedColor === color.value
-                ? "border-black"
-                : "border-transparent"
+              selectedColor === color.value ? "border-black" : "border-red"
             }`}
             onClick={() => setSelectedColor(color.value)}
           >
