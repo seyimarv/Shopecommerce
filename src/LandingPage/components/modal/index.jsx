@@ -14,7 +14,7 @@ const Modal = ({ isOpen, onClose, children }) => {
             &times;
           </button>
         </div>
-        <div className="flex">{children}</div>
+        <div className="flex h-full">{children}</div>
       </div>
     </div>
   );

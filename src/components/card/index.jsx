@@ -5,7 +5,7 @@ import Modal from "../../LandingPage/components/modal";
 import { gsap, useGSAP } from "../../utils/gsap";
 import Button from "../button";
 import Picture2 from "../../assets/picture2.jpg";
-import ProductSelector from "../../LandingPage/components/modal/productselector"
+import ProductSelector from "../../LandingPage/components/modal/productselector";
 import PropTypes from "prop-types";
 
 const Card = ({
@@ -18,7 +18,7 @@ const Card = ({
   soldOut,
   multipleOptions,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const cardRef = useRef();
   const buttonRef = useRef();
 
@@ -104,7 +104,7 @@ const Card = ({
           : "Add to cart"}
       </Button>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <img src={Picture2} className="h-132 rounded rounded-r-none" alt="" />
+        <img src={Picture2} className="h-full rounded rounded-r-none" alt="" />
         <div className="p-12 py-10 flex flex-col gap-5">
           <div>
             <p className="text-xs font-extralight uppercase mb-2">ShopHaul</p>
