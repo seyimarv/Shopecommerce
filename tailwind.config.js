@@ -24,7 +24,7 @@ export default {
       colors: {
         primary: "#fa9c9b",
         secondary: "#f6d3d2",
-        tertiary: "#EDBDBB",
+        tertiary: "#D98886",
         background: "#ffffff",
       },
       textColor: {

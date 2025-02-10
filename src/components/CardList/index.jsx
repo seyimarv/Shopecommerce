@@ -8,11 +8,34 @@ const CardList = ({ lists, title, showMore }) => {
     <section className="container">
       <p className="text-2xl pb-8 tracking-widest uppercase">{title}</p>
       <div className="w-full flex gap-4">
-        {lists.map(({ imgSrc, title, price }, index) => (
-          <React.Fragment key={index}>
-            <Card imgSrc={imgSrc} title={title} price={price} />
-          </React.Fragment>
-        ))}
+        {lists.map(
+          (
+            {
+              imgSrc,
+              title,
+              price,
+              sale,
+              prev,
+              current,
+              multipleOptions,
+              soldOut,
+            },
+            index
+          ) => (
+            <React.Fragment key={index}>
+              <Card
+                imgSrc={imgSrc}
+                title={title}
+                price={price}
+                sale={sale}
+                prev={prev}
+                current={current}
+                multipleOptions={multipleOptions}
+                soldOut={soldOut}
+              />
+            </React.Fragment>
+          )
+        )}
       </div>
       <div className="flex w-full justify-center pt-10">
         {showMore && (

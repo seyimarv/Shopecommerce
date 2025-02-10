@@ -14,6 +14,10 @@ const sampleLists = [
     imgSrc: picture1,
     title: "Product 1",
     price: "$10.99",
+    sale: true,
+    prev: "$12.49",
+    current: "$5",
+    multipleOptions: true,
   },
   {
     imgSrc: picture2,
@@ -24,6 +28,7 @@ const sampleLists = [
     imgSrc: picture3,
     title: "Product 3",
     price: "$8.99",
+    soldOut: true,
   },
   {
     imgSrc: picture4,
