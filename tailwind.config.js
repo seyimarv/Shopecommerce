@@ -32,7 +32,7 @@ export default {
         primary: "#212326",
       },
       boxShadow: {
-        'outline-icon': '0 0 0px 2px black',
+        "outline-icon": "0 0 0px 2px black",
       },
       fontFamily: {
         sans: ["Ubuntu", "sans-serif"],
@@ -40,5 +40,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

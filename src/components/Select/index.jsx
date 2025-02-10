@@ -27,7 +27,7 @@ const CustomSelect = ({ options, placeholder, onChange, defaultOption }) => {
   return (
     <div className="text-sm">
       <button
-        className="flex gap-1 p-1 border items-center w-[5rem] rounded-sm justify-between cursor-pointer"
+        className="flex gap-1 p-1 px-1.5 border items-center w-[5.5rem] rounded-sm justify-between cursor-pointer"
         onClick={toggleDropdown}
       >
         <span className="text-sm">{selectOption?.label || placeholder}</span>
