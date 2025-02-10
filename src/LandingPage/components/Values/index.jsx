@@ -1,4 +1,4 @@
-import { FaHeart, FaStar, FaCheck, FaLightbulb } from "react-icons/fa";
+import { FaHeart, FaStar, FaCheck } from "react-icons/fa";
 import Value from "./value";
 
 const valuesData = [

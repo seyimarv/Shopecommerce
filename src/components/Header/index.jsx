@@ -43,7 +43,7 @@ const Header = () => {
 
   return (
     <header
-      className={`border h-[3.875rem] w-full top-0 z-50 bg-background transition-all duration-300 ${
+      className={`h-[3.875rem] w-full top-0 z-50 bg-background transition-all duration-300 ${
         isSticky === "initial"
           ? "opacity-100"
           : isSticky === "sticky"
@@ -51,8 +51,8 @@ const Header = () => {
           : "opacity-0 pointer-events-none translate-y-[-50%]"
       }`}
     >
-      <nav className="flex justify-between w-full gap-4 items-center border container">
-        <div className="w-30 border">
+      <nav className="h-full flex justify-between w-full gap-4 items-center container">
+        <div className="w-30">
           <img src={logo} alt="logo" className="" />
         </div>
         <ul className="flex gap-16 w-full justify-center">

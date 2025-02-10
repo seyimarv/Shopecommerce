@@ -66,7 +66,7 @@ const ArrowButton = ({ children, className }) => {
 const Testimonials = () => {
   const mainRef = useRef(null);
   const thumbsRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState("");
 
   console.log(activeIndex);
 
@@ -108,13 +108,12 @@ const Testimonials = () => {
           hasTrack={false}
           className="w-full"
           onMove={(splide) => {
-            console.log("here");
             console.log(splide.index);
             setActiveIndex(splide.index);
           }}
-          //   onMounted={(splide) => {
-          //     splide.sync(mainRef.current?.splide);
-          //   }}
+          onMounted={() => {
+            setActiveIndex(0);
+          }}
         >
           <SplideTrack>
             {testimonials.map((image, index) => (
