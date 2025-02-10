@@ -6,16 +6,19 @@ const LinkDropdown = ({ title, dropdownList, path }) => {
   const container = useRef(null);
   const dropdownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+  let timeoutId = useRef(null);
 
   // GSAP animation setup
   useGSAP(
     () => {
-      // Initial hidden state
       gsap.set(dropdownRef.current, {
         opacity: 0,
-        y: -1,
+        y: -10, // Slightly more movement for better animation
         display: "none",
       });
+      return () => {
+        gsap.killTweensOf(dropdownRef.current);
+      };
     },
     { scope: container }
   );
@@ -33,11 +36,11 @@ const LinkDropdown = ({ title, dropdownList, path }) => {
       } else {
         gsap.to(dropdownRef.current, {
           opacity: 0,
-          y: -1,
+          y: -10,
           duration: 0.2,
           ease: "power2.in",
           onComplete: () => {
-            gsap.set(dropdownRef.current, { display: "none" });
+            if (!isOpen) gsap.set(dropdownRef.current, { display: "none" });
           },
         });
       }
@@ -46,11 +49,19 @@ const LinkDropdown = ({ title, dropdownList, path }) => {
   );
 
   const handleMouseEnter = () => {
+    clearTimeout(timeoutId.current);
     setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
-    setIsOpen(false);
+    timeoutId.current = setTimeout(() => {
+      if (
+        !container.current.matches(":hover") &&
+        !dropdownRef.current.matches(":hover")
+      ) {
+        setIsOpen(false);
+      }
+    }, 100); // Add slight delay to avoid flickering
   };
 
   return (
@@ -60,13 +71,15 @@ const LinkDropdown = ({ title, dropdownList, path }) => {
       onMouseLeave={handleMouseLeave}
       ref={container}
     >
-      <a href={path} className=" uppercase">
+      <a href={path} className="uppercase">
         {title}
       </a>
       <div className="relative">
         <div
           ref={dropdownRef}
-          className="dropdown flex flex-col bg-background absolute top-2 min-w-full shadow-sm py-4 px-4"
+          className="dropdown flex flex-col bg-background absolute top-2 min-w-full shadow-sm py-4 px-4 z-1000"
+          onMouseEnter={handleMouseEnter} // Prevents closing if hovering inside dropdown
+          onMouseLeave={handleMouseLeave} // Ensures it closes when fully out
         >
           {dropdownList?.map(({ title, path }, i) => (
             <a

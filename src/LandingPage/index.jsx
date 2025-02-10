@@ -1,6 +1,6 @@
 import CardList from "../components/CardList";
 import Header from "../components/Header";
-import Banner from "./components/banner/banner";
+import Banner from "./components/banner";
 import HeroSection from "./components/HeroSection";
 import picture1 from "../assets/picture1.jpg";
 import picture2 from "../assets/picture2.jpg";

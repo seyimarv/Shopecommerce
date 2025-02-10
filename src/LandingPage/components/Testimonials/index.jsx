@@ -111,7 +111,7 @@ const Testimonials = () => {
             console.log(splide.index);
             setActiveIndex(splide.index);
           }}
-          onMounted={(splide) => {
+          onMounted={() => {
             setActiveIndex(0);
           }}
         >
