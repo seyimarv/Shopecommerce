@@ -2,11 +2,11 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { useEffect, useRef, useState } from "react";
 import { GrNext } from "react-icons/gr";
-import picture1 from "../../../assets/picture1.jpg";
-import picture2 from "../../../assets/picture2.jpg";
-import picture3 from "../../../assets/picture3.jpg";
-import picture4 from "../../../assets/picture4.jpg";
-import StarRating from "../../../components/StarRating";
+import picture1 from "../../../../assets/picture1.jpg";
+import picture2 from "../../../../assets/picture2.jpg";
+import picture3 from "../../../../assets/picture3.jpg";
+import picture4 from "../../../../assets/picture4.jpg";
+import StarRating from "../../../../components/StarRating";
 
 const testimonials = [
   {

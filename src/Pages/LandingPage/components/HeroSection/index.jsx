@@ -1,10 +1,10 @@
-import image from "../../../assets/Landing.jpg";
-import Button from "../../../components/button";
+import image from "../../../../assets/Landing.jpg";
+import Button from "../../../../components/button";
 import { useState, useRef } from "react";
 import { SplideTrack, Splide, SplideSlide } from "@splidejs/react-splide";
-import picture1 from "../../../assets/picture1.jpg";
-import picture2 from "../../../assets/picture2.jpg";
-import picture3 from "../../../assets/picture3.jpg";
+import picture1 from "../../../../assets/picture1.jpg";
+import picture2 from "../../../../assets/picture2.jpg";
+import picture3 from "../../../../assets/picture3.jpg";
 import ProgressBar from "./progressBar";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";

@@ -1,11 +1,9 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import { useRef, useState } from "react";
-import Modal from "../../LandingPage/components/modal";
+import Modal from "../../Pages/LandingPage/components/modal";
 import { gsap, useGSAP } from "../../utils/gsap";
 import Button from "../button";
 import Picture2 from "../../assets/picture2.jpg";
-import ProductSelector from "../../LandingPage/components/modal/productselector";
+import ProductSelector from "../../Pages/LandingPage/components/modal/productselector";
 import PropTypes from "prop-types";
 
 const Card = ({
