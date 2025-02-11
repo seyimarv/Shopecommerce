@@ -1,9 +1,7 @@
 import navItems from "../../utils/nav-items";
 import LinkDropdown from "../LinkDropdown";
 import logo from "../../assets/logo.png";
-// import { FaUser } from "react-icons/fa6";
-// import { FaCartShopping } from "react-icons/fa6";
-// import { FaSearch } from "react-icons/fa";
+import { useLocation } from "react-router";
 import { CiUser, CiSearch, CiShoppingCart } from "react-icons/ci";
 import CurrencyPicker from "../CurrencyPicker";
 import { useState, useEffect, useRef } from "react";
@@ -12,6 +10,8 @@ const Header = () => {
   const [isSticky, setIsSticky] = useState("initial");
   const lastScrollY = useRef(0);
   const ticking = useRef(false); // Prevent multiple rAF calls at once
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +44,8 @@ const Header = () => {
   return (
     <header
       className={`h-[3.875rem] w-full top-0 z-50 bg-background transition-all duration-300 ${
+        !isHomePage && isSticky !== "sticky" ? "border-b border-b-gray-300" : ""
+      } ${
         isSticky === "initial"
           ? "opacity-100"
           : isSticky === "sticky"

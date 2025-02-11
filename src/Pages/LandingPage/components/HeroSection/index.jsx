@@ -92,7 +92,7 @@ const HeroSection = () => {
             ))}
           </SplideTrack>
         </Splide>
-        <div className="flex gap-2 w-full justify-center absolute z-50000 bottom-8 items-end">
+        <div className="flex gap-2 w-full justify-center absolute z-5 bottom-8 items-end">
           {images.map((image, index) => (
             <button
               key={index}
