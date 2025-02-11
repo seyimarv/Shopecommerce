@@ -1,6 +1,11 @@
-import { useRef } from "react";
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import { useRef, useState } from "react";
+import Modal from "../../LandingPage/components/modal";
 import { gsap, useGSAP } from "../../utils/gsap";
 import Button from "../button";
+import Picture2 from "../../assets/picture2.jpg";
+import ProductSelector from "../../LandingPage/components/modal/productselector";
 import PropTypes from "prop-types";
 
 const Card = ({
@@ -13,8 +18,17 @@ const Card = ({
   soldOut,
   multipleOptions,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const cardRef = useRef();
   const buttonRef = useRef();
+
+  const handleAddToCart = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   const { contextSafe } = useGSAP(
     () => {
@@ -77,6 +91,7 @@ const Card = ({
         />
       </div>
       <Button
+        onClick={handleAddToCart}
         ref={buttonRef}
         className="button absolute bottom-18 w-[80%] min-w-auto left-1/2 transform -translate-x-1/2"
         small
@@ -88,6 +103,32 @@ const Card = ({
           ? "Choose options"
           : "Add to cart"}
       </Button>
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <img src={Picture2} className="h-full rounded rounded-r-none" alt="" />
+        <div className="p-12 py-10 flex flex-col gap-5">
+          <div>
+            <p className="text-xs font-extralight uppercase mb-2">ShopHaul</p>
+            <h3 className="text-xl uppercase">Black Gel Pens</h3>
+          </div>
+          <div className="flex items-center gap-x-0.5">
+            <span className="text-xs">$</span>
+            <span className="text-lg">34</span>
+          </div>
+
+          {/* <div>
+            <h3>Color:</h3>
+            <span>blue</span>
+          </div>
+
+          <div className="flex">
+            <img src={Picture2} className="h-5" alt="" />
+            <img src={Picture2} className="h-5" alt="" />
+          </div> */}
+
+          <ProductSelector />
+        </div>
+      </Modal>
+
       <div className="pt-2 flex flex-col px-1 font-light">
         <span className="tracking-wider text-md">{title}</span>
         {sale ? (
