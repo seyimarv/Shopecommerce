@@ -25,14 +25,16 @@ const Button = ({
       ? "px-5 py-3 text-base"
       : "px-4 py-2 text-base",
     {
-      "opacity-40 cursor-not-allowed": isLoading || disabled, 
+      "opacity-40 cursor-not-allowed": isLoading || disabled,
     }
   );
 
   const variantClasses = clsx({
     "bg-primary": variant === "filled",
     "bg-[black] text-white": variant === "secondary",
-    "bg-gray-300 text-gray-500": isLoading || disabled, 
+    "border border-gray-500 text-gray-900 bg-transparent":
+      variant === "outline",
+    "bg-gray-300 text-gray-500": isLoading || disabled,
   });
 
   const Tag = isLink ? "a" : "button";

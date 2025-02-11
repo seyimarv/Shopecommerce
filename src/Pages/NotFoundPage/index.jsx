@@ -7,7 +7,7 @@ const NotFoundPage = () => {
       <p className="text-lg text-gray-600 uppercase tracking-wide">
         Oops! Page not found, please return to home page
       </p>
-      <Button>return</Button>
+      <Button variant="outline">return</Button>
     </div>
   );
 };

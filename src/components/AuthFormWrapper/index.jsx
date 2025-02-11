@@ -14,8 +14,8 @@ const AuthFormWrapper = ({ title, subtitle, children, type = "login" }) => {
         <div className="flex items-center gap-3 py-2">
           <Divider /> <p className="text-gray-400 font-light">Or continue with</p> <Divider />
         </div>
-        <Button className="w-full bg-secondary">
-          <div className="flex gap-2 items-center justify-center">
+        <Button className="w-full bg-secondary" variant="outline">
+          <div className="flex gap-2 items-center justify-center" >
             <GoogleIcon />
             <span>Log in</span>
           </div>
@@ -35,7 +35,7 @@ const AuthFormWrapper = ({ title, subtitle, children, type = "login" }) => {
           ) : (
             <>
               Already have an account?{" "}
-              <Link to="/login" className="text-gray-900 hover:underline ml-1">
+              <Link to="/login" className="text-gray-900 hover:underline ml-1" >
                 Log in
               </Link>
             </>
