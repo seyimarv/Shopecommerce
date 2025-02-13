@@ -5,6 +5,7 @@ import Button from "../button";
 import Picture2 from "../../assets/picture2.jpg";
 import ProductSelector from "../../Pages/LandingPage/components/modal/productselector";
 import PropTypes from "prop-types";
+import { GrLinkNext } from "react-icons/gr";
 
 const Card = ({
   imgSrc,
@@ -15,6 +16,9 @@ const Card = ({
   current,
   soldOut,
   multipleOptions,
+  hideButtons,
+  type,
+  className, // New className prop
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const cardRef = useRef();
@@ -71,12 +75,14 @@ const Card = ({
 
   return (
     <div
-      className="relative cursor-pointer w-full"
+      className={`relative cursor-pointer w-full ${className}`}
       ref={cardRef}
       onMouseEnter={() => handleHover(true)}
       onMouseLeave={() => handleHover(false)}
     >
-      <div className="overflow-hidden w-full h-90 rounded-sm relative">
+      <div
+        className={`overflow-hidden w-full h-90 rounded-sm relative ${className}`}
+      >
         {sale && (
           <div className="absolute top-4 left-4 z-2000 text-white bg-tertiary px-3 py-0.1 rounded-sm">
             <span className="text-sm uppercase tracking-wide">Save $5</span>
@@ -88,47 +94,41 @@ const Card = ({
           alt={title}
         />
       </div>
-      <Button
-        onClick={handleAddToCart}
-        ref={buttonRef}
-        className="button absolute bottom-18 w-[80%] min-w-auto left-1/2 transform -translate-x-1/2"
-        small
-        disabled={soldOut}
-      >
-        {soldOut
-          ? "Sold Out"
-          : multipleOptions
-          ? "Choose options"
-          : "Add to cart"}
-      </Button>
+      {!hideButtons && (
+        <Button
+          onClick={handleAddToCart}
+          ref={buttonRef}
+          className="button absolute bottom-18 w-[80%] min-w-auto left-1/2 transform -translate-x-1/2"
+          small
+          disabled={soldOut}
+        >
+          {soldOut
+            ? "Sold Out"
+            : multipleOptions
+            ? "Choose options"
+            : "Add to cart"}
+        </Button>
+      )}
+
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <img src={Picture2} className="h-full rounded rounded-r-none" alt="" />
         <div className="p-12 py-10 flex flex-col gap-5">
           <div>
             <p className="text-xs font-extralight uppercase mb-2">ShopHaul</p>
-            <h3 className="text-xl uppercase">Black Gel Pens</h3>
+            <h3 className="text-xl uppercase">{title}</h3>
           </div>
           <div className="flex items-center gap-x-0.5">
             <span className="text-xs">$</span>
-            <span className="text-lg">34</span>
+            <span className="text-lg">{current || price}</span>
           </div>
-
-          {/* <div>
-            <h3>Color:</h3>
-            <span>blue</span>
-          </div>
-
-          <div className="flex">
-            <img src={Picture2} className="h-5" alt="" />
-            <img src={Picture2} className="h-5" alt="" />
-          </div> */}
-
           <ProductSelector />
         </div>
       </Modal>
 
       <div className="pt-2 flex flex-col px-1 font-light">
-        <span className="tracking-wider text-md">{title}</span>
+        <span className="tracking-wider text-md flex items-center gap-1">
+          {title} {type === "collections" && <GrLinkNext size={16} />}
+        </span>
         {sale ? (
           <div className="flex gap-2 text-md">
             <span className="text-tertiary">{current}</span>
@@ -145,12 +145,26 @@ const Card = ({
 Card.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   sale: PropTypes.bool,
   prev: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   current: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   soldOut: PropTypes.bool,
   multipleOptions: PropTypes.bool,
+  hideButtons: PropTypes.bool,
+  type: PropTypes.oneOf(["collections", "default"]),
+  className: PropTypes.string, // New propType added
+};
+
+Card.defaultProps = {
+  sale: false,
+  prev: null,
+  current: null,
+  multipleOptions: false,
+  soldOut: false,
+  hideButtons: false,
+  type: "default",
+  className: "", // Default to an empty string
 };
 
 export default Card;

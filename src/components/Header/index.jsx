@@ -9,7 +9,7 @@ import CurrencyPicker from "../CurrencyPicker";
 const Header = () => {
   const [isSticky, setIsSticky] = useState("initial");
   const lastScrollY = useRef(0);
-  const ticking = useRef(false); // Prevent multiple rAF calls at once
+  const ticking = useRef(false); 
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
@@ -22,9 +22,9 @@ const Header = () => {
           if (currentScrollY <= 102) {
             setIsSticky("initial");
           } else if (currentScrollY < lastScrollY.current) {
-            setIsSticky("sticky"); // Scrolling up → Make header sticky
+            setIsSticky("sticky"); 
           } else {
-            setIsSticky("false"); // Scrolling down → Remove sticky
+            setIsSticky("false");
           }
 
           lastScrollY.current = currentScrollY;
@@ -52,14 +52,11 @@ const Header = () => {
       }`}
     >
       <nav className="h-full flex justify-between w-full gap-4 items-center container">
-        {/* Logo wrapped in a Link */}
         <div className="w-30">
           <Link to="/">
             <img src={logo} alt="logo" className="" />
           </Link>
         </div>
-
-        {/* Navigation Links */}
         <ul className="flex gap-16 w-full justify-center">
           {navItems.map(({ title, path, hasDropdown, dropdown }, i) => (
             <li key={i}>
