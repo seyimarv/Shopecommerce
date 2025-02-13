@@ -35,8 +35,7 @@ export default {
         "outline-icon": "0 0 0px 2px black",
       },
       fontFamily: {
-        sans: ["Ubuntu", "sans-serif"],
-        serif: ["Ubuntu", "serif"],
+        Cactus: ["PT Sans Narrow", "serif"],
       },
     },
   },
