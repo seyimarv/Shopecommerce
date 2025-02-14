@@ -66,7 +66,7 @@ const CardList = ({ lists, title, showMore, type }) => {
           <CardItems lists={lists} hideButtons />
         </div>
       ) : (
-        <div className="w-full flex gap-4">
+        <div className="w-full flex flex-wrap gap-x-4 gap-y-10">
           <CardItems lists={lists} />
         </div>
       )}

@@ -75,16 +75,16 @@ const Card = ({
 
   return (
     <div
-      className={`relative cursor-pointer w-full ${className}`}
+      className={`relative cursor-pointer w-[calc(25%-.9rem)] flex-shrink-0`}
       ref={cardRef}
       onMouseEnter={() => handleHover(true)}
       onMouseLeave={() => handleHover(false)}
     >
       <div
-        className={`overflow-hidden w-full h-90 rounded-sm relative ${className}`}
+        className={`overflow-hidden w-full h-90 rounded-sm relative  ${className}`}
       >
         {sale && (
-          <div className="absolute top-4 left-4 z-2000 text-white bg-tertiary px-3 py-0.1 rounded-sm">
+          <div className="absolute top-4 left-4 z-10 text-white bg-tertiary px-3 py-0.1 rounded-sm">
             <span className="text-sm uppercase tracking-wide">Save $5</span>
           </div>
         )}

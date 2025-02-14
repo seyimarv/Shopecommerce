@@ -3,7 +3,14 @@ import PropTypes from "prop-types";
 import Dropdown from "./dropdown";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 
-const CustomSelect = ({ options, placeholder, onChange, defaultOption }) => {
+const CustomSelect = ({
+  options,
+  placeholder,
+  onChange,
+  defaultOption,
+  className,
+  buttonClassName,
+}) => {
   const [selectOption, setSelectOption] = useState(defaultOption);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,12 +32,12 @@ const CustomSelect = ({ options, placeholder, onChange, defaultOption }) => {
   };
 
   return (
-    <div className="text-sm">
+    <div className={`text-sm ${className}`}>
       <button
-        className="flex gap-1 p-1 px-1.5 border items-center w-[5.5rem] rounded-sm justify-between cursor-pointer"
+        className={`flex gap-1 py-[.6rem] px-4 border items-center min-w-[5.5rem] w-full rounded-lg justify-between cursor-pointer tracking-wider ${buttonClassName}`}
         onClick={toggleDropdown}
       >
-        <span className="text-sm">{selectOption?.label || placeholder}</span>
+        <span className="text-xs">{selectOption?.label || placeholder}</span>
         {isOpen ? <FaAngleUp size={15} /> : <FaAngleDown size={15} />}
       </button>
       <Dropdown
@@ -54,6 +61,8 @@ CustomSelect.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   defaultOption: PropTypes.string,
+  className: PropTypes.string,
+  buttonClassName: PropTypes.string,
 };
 
 CustomSelect.defaultProps = {
