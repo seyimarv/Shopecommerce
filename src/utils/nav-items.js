@@ -10,7 +10,7 @@ const navItems = [
       },
       {
         title: "All products",
-        path: "/all-products",
+        path: "/products",
       },
       {
         title: "Products",
@@ -28,18 +28,8 @@ const navItems = [
   },
   {
     title: "All products",
-    path: "all-products",
+    path: "products",
   },
-  //   {
-  //     title: "Currency",
-  //   },
-  //   {
-  //     title: "Search",
-  //   },
-  //   {
-  //     title: "Login",
-  //     path: "/login",
-  //   },
 ];
 
 export default navItems;

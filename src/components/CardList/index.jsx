@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Button from "../button";
 import Card from "../card";
 
-const CardItems = ({ lists, hideButtons }) => {
+const CardItems = ({ lists, hideButtons, type }) => {
   return (
     <>
       {lists.map(
@@ -20,7 +20,10 @@ const CardItems = ({ lists, hideButtons }) => {
           },
           index
         ) => (
-          <React.Fragment key={index}>
+          <div
+            className={type !== "collections" ? "w-[calc(25%-0.8rem)]" : ""}
+            key={index}
+          >
             <Card
               imgSrc={imgSrc}
               title={title}
@@ -32,7 +35,7 @@ const CardItems = ({ lists, hideButtons }) => {
               soldOut={soldOut}
               hideButtons={hideButtons}
             />
-          </React.Fragment>
+          </div>
         )
       )}
     </>
@@ -67,7 +70,7 @@ const CardList = ({ lists, title, showMore, type }) => {
         </div>
       ) : (
         <div className="w-full flex flex-wrap gap-x-4 gap-y-10">
-          <CardItems lists={lists} />
+          <CardItems lists={lists} type={type} />
         </div>
       )}
 
