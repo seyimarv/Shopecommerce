@@ -75,7 +75,7 @@ const Card = ({
 
   return (
     <div
-      className={`relative cursor-pointer w-[calc(25%-.9rem)] flex-shrink-0`}
+      className={`relative cursor-pointer w-[calc(25%-.8rem)] flex-shrink-0`}
       ref={cardRef}
       onMouseEnter={() => handleHover(true)}
       onMouseLeave={() => handleHover(false)}

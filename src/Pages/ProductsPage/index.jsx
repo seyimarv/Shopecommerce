@@ -114,7 +114,7 @@ const ProductsPage = () => {
             <AvailabilityFilter />
             <PriceFilter />
           </div>
-          <div className="flex justify-between items-center gap-4">
+          <div className="flex items-center gap-4">
             <CustomSelect
               options={sortingOptions}
               // defaultOption={currencies[0]}
@@ -122,7 +122,7 @@ const ProductsPage = () => {
               placeholder="SORT BY"
               className="w-[12.5rem]"
             />
-            <span className="text-sm">
+            <span className="text-sm text-secondary">
                 400 products
             </span>
           </div>

@@ -30,6 +30,7 @@ export default {
       textColor: {
         button: "#212326",
         primary: "#212326",
+        secondary: "#212326"
       },
       boxShadow: {
         "outline-icon": "0 0 0px 2px black",

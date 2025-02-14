@@ -4,6 +4,7 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import Divider from "../Divider";
 import CurrencyInput from "../input/CurrencyInput";
+import CheckBox from "../CheckBox";
 
 const DropdownFilter = ({ label, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ const DropdownFilter = ({ label, children }) => {
       {isOpen && (
         <div className="relative w-full">
           <div
-            className="absolute left-0  min-w-xs bg-white border border-gray-400  rounded-lg shadow-lg z-100 mt-1 whitespace-nowrap"
+            className="absolute left-0  min-w-xs bg-white border-1 border-gray-500  rounded-lg shadow-lg z-100 mt-4 whitespace-nowrap"
             ref={ref}
           >
             {children}
@@ -50,17 +51,8 @@ const AvailabilityFilter = () => {
       </div>
       <Divider className="w-full" />
       <div className="p-4">
-        <div className="flex justify-between items-center text-sm mb-4">
-          <label className="flex items-center gap-2">
-            <input type="checkbox" className="form-checkbox" /> In stock (445)
-          </label>
-        </div>
-        <div className="flex justify-between items-center text-sm">
-          <label className="flex items-center gap-2">
-            <input type="checkbox" className="form-checkbox" /> Out of stock
-            (40)
-          </label>
-        </div>
+        <CheckBox label="in stock(30)" />
+        <CheckBox label="out of stock(40)" />
       </div>
     </DropdownFilter>
   );
