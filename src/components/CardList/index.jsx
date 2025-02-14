@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 import Button from "../button";
 import Card from "../card";
@@ -56,6 +55,7 @@ CardItems.propTypes = {
     })
   ).isRequired,
   hideButtons: PropTypes.bool,
+  type: PropTypes.string,
 };
 
 const CardList = ({ lists, title, showMore, type }) => {

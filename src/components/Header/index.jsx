@@ -57,7 +57,7 @@ const Header = () => {
             <img src={logo} alt="logo" className="" />
           </Link>
         </div>
-        <ul className="flex gap-16 w-full justify-center">
+        <ul className="flex gap-16 w-full justify-center items-center">
           {navItems.map(({ title, path, hasDropdown, dropdown }, i) => (
             <li key={i}>
               {hasDropdown ? (
