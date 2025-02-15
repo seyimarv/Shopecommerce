@@ -42,7 +42,7 @@ const Banner = ({ announcements }) => {
     <div className="bg-secondary w-full py-4 relative">
       <div className="container flex">
         <Splide
-          ref={splideRef} // Store Splide instance
+          ref={splideRef}
           options={{
             type: "loop",
             perPage: 1,

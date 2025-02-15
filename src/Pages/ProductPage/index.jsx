@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { IoChevronDownSharp } from "react-icons/io5";
-import Picture from "../../assets/picture2.jpg";
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+import Picture1 from "../../assets/picture1.jpg";
+import Picture2 from "../../assets/picture2.jpg";
+import Picture3 from "../../assets/picture3.jpg";
+import Picture4 from "../../assets/picture4.jpg";
+import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 
 const product = {
   title: "EMBROIDERY CAP - B GRADE",
@@ -12,45 +18,101 @@ const product = {
     { value: "beige", className: "bg-[#F5F2DA]" },
     { value: "white", className: "bg-white border" },
   ],
-  images: [
-    "../../assets/picture2.jpg",
-    "../../assets/picture2.jpg",
-    "../../assets/picture2.jpg",
-    "../../assets/picture2.jpg",
-  ],
   sections: ["DETAILS", "MATERIAL", "CARE"],
 };
 
+const images = [
+  Picture1,
+  Picture2,
+  Picture3,
+  Picture4,
+  Picture1,
+  Picture2,
+  Picture3,
+  Picture4,
+];
+
 export default function ProductPage() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0].value);
-  const [selectedImage, setSelectedImage] = useState(product.images[0]);
   const [openSection, setOpenSection] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const splideRef = useRef(null);
+
+  const goNext = () => {
+    if (splideRef.current) {
+      splideRef.current.splide.go("+1");
+    }
+  };
+
+  const goPrev = () => {
+    if (splideRef.current) {
+      splideRef.current.splide.go("-1");
+    }
+  };
 
   return (
     <div className="max-w-7xl mx-auto p-6 grid md:grid-cols-2 gap-8 tracking-wider">
       <div>
         <img
-          src={Picture}
+          src={images[selectedIndex]}
           alt="Cap"
-          className="rounded-lg w-full h-3/5 object-cover object-center"
+          className="rounded-lg w-full h-3/5 shadow-md object-cover object-center"
         />
-        <div className="flex w-xs border-7 border-red mt-4 mx-auto">
-          {product.images.map((img, index) => (
-            <img
-              key={index}
-              src={Picture}
-              alt={`Thumbnail ${index + 1}`}
-              className={`w-16 h-16 cursor-pointer object-cover object-center ${
-                selectedImage === img ? "border-black" : "border-transparent"
-              }`}
-              onClick={() => setSelectedImage(img)}
-            />
-          ))}
+        <div className="mt-7 relative">
+          <button
+            className="cursor-pointer p-3 rounded-full absolute shadow-lg left-2 top-8"
+            onClick={goPrev}
+          >
+            <FaChevronLeft size={25} />
+          </button>
+          <div className="bg-white p-3 rounded-lg shadow-lg w-full max-w-md mx-auto">
+            <Splide
+              ref={splideRef}
+              onMove={(splide) => {
+                console.log(splide.index);
+                setSelectedIndex(splide.index);
+              }}
+              options={{
+                type: "slide",
+                perPage: 4,
+                perMove: 1,
+                gap: "1rem",
+                pagination: false,
+                arrows: false,
+                focus: "center",
+                breakpoints: {
+                  1024: { perPage: 3 },
+                  768: { perPage: 2 },
+                  480: { perPage: 1 },
+                },
+              }}
+            >
+              {images.map((image, index) => (
+                <SplideSlide key={index}>
+                  <img
+                    src={image}
+                    alt={`Thumbnail ${index + 1}`}
+                    className={`w-full h-24 object-cover rounded-md cursor-pointer ${
+                      selectedIndex === index ? "border-2 border-black" : ""
+                    }`}
+                    onClick={() => setSelectedIndex(index)}
+                  />
+                </SplideSlide>
+              ))}
+            </Splide>
+          </div>
+          <button
+            className="cursor-pointer p-3 rounded-full absolute shadow-lg right-2 top-8"
+            onClick={goNext}
+          >
+            <FaChevronRight size={25} />
+          </button>
         </div>
       </div>
 
-      <div>
+      <div className="pt-5">
         <h1 className="text-2xl font-thin">{product.title}</h1>
         <div className="flex items-center gap-2 mt-4">
           <span className="text-lg font-bold text-red-500">
