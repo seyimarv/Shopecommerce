@@ -18,11 +18,6 @@ const valuesData = [
     description: "Dedicated to delivering the best results consistently.",
     Icon: FaCheck,
   },
-//   {
-//     title: "Innovation",
-//     description: "Continuously improving and embracing new ideas.",
-//     Icon: FaLightbulb,
-//   },
 ];
 
 const ValuesList = () => {
