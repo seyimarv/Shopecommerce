@@ -5,12 +5,9 @@ import Layout from "./components/Layout";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/Signup";
 import NotFoundPage from "./Pages/NotFoundPage";
-
-import ProductPage from "./Pages/ProductPage";
-
 import Collections from "./Pages/Collections";
 import ProductsPage from "./Pages/ProductsPage";
-
+import ProductPage from "./Pages/ProductPage";
 
 function App() {
   return (
@@ -25,6 +22,7 @@ function App() {
         <Route path="collections" element={<Collections />} />
         <Route path="products" element={<ProductsPage />} />
 
+        <Route path="product" element={<ProductPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
