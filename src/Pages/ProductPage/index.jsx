@@ -7,6 +7,7 @@ import Picture2 from "../../assets/picture2.jpg";
 import Picture3 from "../../assets/picture3.jpg";
 import Picture4 from "../../assets/picture4.jpg";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
+import MayAlsoLike from "../../components/Mayalsolike";
 
 const product = {
   title: "EMBROIDERY CAP - B GRADE",
@@ -62,12 +63,12 @@ export default function ProductPage() {
         />
         <div className="mt-7 relative">
           <button
-            className="cursor-pointer p-3 rounded-full absolute shadow-lg left-2 top-8"
+            className="cursor-pointer p-3 rounded-full absolute shadow-lg left-10 top-10"
             onClick={goPrev}
           >
-            <FaChevronLeft size={25} />
+            <FaChevronLeft size={20} />
           </button>
-          <div className="bg-white p-3 rounded-lg shadow-lg w-full max-w-md mx-auto">
+          <div className="bg-white p-3 rounded-lg shadow-lg w-full max-w-sm mx-auto">
             <Splide
               ref={splideRef}
               onMove={(splide) => {
@@ -104,10 +105,10 @@ export default function ProductPage() {
             </Splide>
           </div>
           <button
-            className="cursor-pointer p-3 rounded-full absolute shadow-lg right-2 top-8"
+            className="cursor-pointer p-3 rounded-full absolute shadow-lg right-10 top-10"
             onClick={goNext}
           >
-            <FaChevronRight size={25} />
+            <FaChevronRight size={20} />
           </button>
         </div>
       </div>
@@ -200,6 +201,8 @@ export default function ProductPage() {
           </button>
         </div>
       </div>
+
+      <MayAlsoLike />
     </div>
   );
 }
