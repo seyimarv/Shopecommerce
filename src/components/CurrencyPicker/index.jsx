@@ -133,6 +133,8 @@ const CurrencyPicker = () => {
       options={currencies}
       defaultOption={currencies[0]}
       onChange={handleChange}
+      className=""
+      buttonClassName="p-10"
     />
   );
 };

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useRef, useState } from "react";
 import { gsap, useGSAP } from "../../utils/gsap";
+import { Link } from "react-router";
 
 const LinkDropdown = ({ title, dropdownList, path }) => {
   const container = useRef(null);
@@ -8,12 +9,11 @@ const LinkDropdown = ({ title, dropdownList, path }) => {
   const [isOpen, setIsOpen] = useState(false);
   let timeoutId = useRef(null);
 
-  // GSAP animation setup
   useGSAP(
     () => {
       gsap.set(dropdownRef.current, {
         opacity: 0,
-        y: -10, // Slightly more movement for better animation
+        y: -10,
         display: "none",
       });
       return () => {
@@ -61,7 +61,7 @@ const LinkDropdown = ({ title, dropdownList, path }) => {
       ) {
         setIsOpen(false);
       }
-    }, 100); // Add slight delay to avoid flickering
+    }, 100);
   };
 
   return (
@@ -71,15 +71,15 @@ const LinkDropdown = ({ title, dropdownList, path }) => {
       onMouseLeave={handleMouseLeave}
       ref={container}
     >
-      <a href={path} className="uppercase">
+      <Link to={path} className="uppercase">
         {title}
-      </a>
+      </Link>
       <div className="relative">
         <div
           ref={dropdownRef}
           className="dropdown flex flex-col bg-background absolute top-2 min-w-full shadow-sm py-4 px-4 z-1000"
-          onMouseEnter={handleMouseEnter} // Prevents closing if hovering inside dropdown
-          onMouseLeave={handleMouseLeave} // Ensures it closes when fully out
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           {dropdownList?.map(({ title, path }, i) => (
             <a
