@@ -5,7 +5,6 @@ import Layout from "./components/Layout";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/Signup";
 import NotFoundPage from "./Pages/NotFoundPage";
-
 import Collections from "./Pages/Collections";
 import ProductsPage from "./Pages/ProductsPage";
 import ProductPage from "./Pages/ProductPage";
@@ -17,8 +16,12 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="login" element={<Login />} />
         <Route path="create-account" element={<SignUp />} />
+
+        <Route path="products" element={<ProductPage />} />
+
         <Route path="collections" element={<Collections />} />
         <Route path="products" element={<ProductsPage />} />
+
         <Route path="product" element={<ProductPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
