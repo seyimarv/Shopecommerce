@@ -7,6 +7,7 @@ import Picture2 from "../../assets/picture2.jpg";
 import Picture3 from "../../assets/picture3.jpg";
 import Picture4 from "../../assets/picture4.jpg";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
+import { GrFavorite } from "react-icons/gr";
 import MayAlsoLike from "../../components/Mayalsolike";
 
 const product = {
@@ -198,9 +199,11 @@ export default function ProductPage() {
               +
             </button>
 
-            <button className="uppercase p-40 py-2 border rounded-md hover:bg-gray-800 hover:text-white">
+            <button className="uppercase p-38 py-2 border rounded-md hover:bg-gray-800 hover:text-white">
               Add to cart
             </button>
+
+            <GrFavorite size={25} />
           </div>
         </div>
       </div>
