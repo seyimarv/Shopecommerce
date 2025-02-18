@@ -100,7 +100,7 @@ const sortingOptions = [
 const ProductsPage = () => {
   const [sortBy, setSortBy] = useState("USD");
 
-  console.log(sortBy)
+  console.log(sortBy);
 
   const handleChange = (option) => {
     setSortBy(option.value);
@@ -108,7 +108,7 @@ const ProductsPage = () => {
   return (
     <PageWrapper title="Products">
       <div>
-        <div className="flex justify-between items-center container mt-10 mb-5">
+        <div className="flex justify-between items-center container mt-3 mb-5">
           <div className="flex items-center gap-4">
             <span className="text-sm">Filter:</span>
             <AvailabilityFilter />
@@ -122,9 +122,7 @@ const ProductsPage = () => {
               placeholder="SORT BY"
               className="w-[12.5rem]"
             />
-            <span className="text-sm text-secondary">
-                400 products
-            </span>
+            <span className="text-sm text-secondary">400 products</span>
           </div>
         </div>
         <CardList lists={sampleLists} />
