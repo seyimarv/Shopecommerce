@@ -9,6 +9,7 @@ import Picture4 from "../../assets/picture4.jpg";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { GrFavorite } from "react-icons/gr";
 import MayAlsoLike from "../../components/Mayalsolike";
+import RecentlyViewed from "../../components/Viewedrecently";
 
 const product = {
   title: "EMBROIDERY CAP - B GRADE",
@@ -208,6 +209,7 @@ export default function ProductPage() {
         </div>
       </div>
       <MayAlsoLike />
+      <RecentlyViewed />
     </>
   );
 }
