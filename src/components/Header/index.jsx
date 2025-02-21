@@ -94,7 +94,7 @@ const Header = () => {
 
         <ul className="flex gap-6 w-full flex-1 justify-end text-md">
           <li>
-            <Link to="/search" onClick={() => setIsOpen(true)}>
+            <Link to="" onClick={() => setIsOpen(true)}>
               <CiSearch size={20} />
             </Link>
           </li>
