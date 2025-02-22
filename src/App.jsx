@@ -12,19 +12,21 @@ import ProductPage from "./Pages/ProductPage";
 
 function App() {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="login" element={<Login />} />
-        <Route path="create-account" element={<SignUp />} />
-        <Route path="collections" element={<Collections />} />
-        <Route path="products" element={<ProductsPage />} />
-        <Route path="cart" element={<Cart />} />
+    <>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="create-account" element={<SignUp />} />
+          <Route path="collections" element={<Collections />} />
+          <Route path="products" element={<ProductsPage />} />
+          <Route path="cart" element={<Cart />} />
 
-        <Route path="product" element={<ProductPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
+          <Route path="product" element={<ProductPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
