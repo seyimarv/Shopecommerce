@@ -33,12 +33,12 @@ const sampleLists = [
     price: "$15.99",
   },
 ];
-const MayAlsoLike = () => {
+const RecentlyViewed = () => {
   return (
-    <PageWrapper title="You may also like">
+    <PageWrapper title="Recently Viewed">
       <CardList lists={sampleLists} />
     </PageWrapper>
   );
 };
 
-export default MayAlsoLike;
+export default RecentlyViewed;

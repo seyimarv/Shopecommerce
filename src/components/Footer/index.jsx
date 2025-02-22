@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaTiktok } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 const links = [
@@ -10,10 +10,6 @@ const links = [
 
 const socialLinks = [
   {
-    Icon: FaFacebook,
-    path: "",
-  },
-  {
     Icon: FaTwitter,
     path: "",
   },
@@ -22,7 +18,7 @@ const socialLinks = [
     path: "",
   },
   {
-    Icon: FaLinkedin,
+    Icon: FaTiktok,
     path: "",
   },
 ];
@@ -43,9 +39,11 @@ const Footer = () => {
         </div>
         <div className="min-w-sm  ml-auto">
           <h2 className="text-lg">SHOPHAUL</h2>
-          <p className="text-gray-400 mt-2">Your one stop shop</p>
+          <p className="text-gray-400 mt-2">Your one-stop shop</p>
           <div className="flex flex-col mt-4">
-            <h4 className="text-white uppercase">SUBSCRIBE TO OUR NEWSLETTER</h4>
+            <h4 className="text-white uppercase">
+              SUBSCRIBE TO OUR NEWSLETTER
+            </h4>
             <div className="mt-2 relative">
               <input
                 type="text"
@@ -62,7 +60,7 @@ const Footer = () => {
       <div className="mt-10 border-t border-gray-700 pt-8 ">
         <div className="container flex justify-between w-full items-center">
           <div className="text-gray-500 text-sm ">
-            &copy; {new Date().getFullYear()} MyCompany. All rights reserved.
+            &copy; {new Date().getFullYear()} ShopHaul. All rights reserved.
           </div>
           <div className="flex gap-4 items-center">
             {socialLinks.map((item, index) => (
