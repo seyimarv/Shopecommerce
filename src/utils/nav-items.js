@@ -5,24 +5,24 @@ const navItems = [
     hasDropdown: true,
     dropdown: [
       {
-        title: "All collections",
-        path: "/all-collections",
+        title: "New Arrivals",
+        path: "/collections/new-arrivals",
       },
       {
-        title: "All products",
-        path: "/products",
+        title: "Journals",
+        path: "/collections/journal",
       },
       {
-        title: "Products",
-        path: "/all-products",
+        title: "Pens",
+        path: "/collections/pens",
       },
       {
-        title: "Shipping",
-        path: "/all-products",
+        title: "Stickers",
+        path: "/collections/stickers",
       },
       {
-        title: "Classics",
-        path: "/all-products",
+        title: "Highlighters",
+        path: "/collections/highlighters",
       },
     ],
   },
