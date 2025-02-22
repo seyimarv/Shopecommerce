@@ -1,13 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { products } from "../../utils/mockData";
 import CartProduct from "../CartProduct";
 import { GoPencil } from "react-icons/go";
 import Button from "../button";
+import Note from "./Note";
 
-const CartModal = ({ isOpen = true, onClose }) => {
+const CartModal = ({ isOpen, onClose }) => {
   const modalRef = useRef();
+  const [isNoteOpen, setOpenNote] = useState(false);
+
+  const openNote = () => {
+    setOpenNote(true);
+  };
+
+  const closeNote = () => {
+    setOpenNote(false);
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -22,7 +32,7 @@ const CartModal = ({ isOpen = true, onClose }) => {
 
   return (
     <div
-      className={`fixed top-0 right-0 h-[calc(100vh-6.875rem)] mt-[6.875rem] w-full z-[1000] border border-t-gray-200 
+      className={`fixed top-0 right-0 h-[calc(100vh-6.875rem)] mt-[6.875rem] w-full z-[1000] border border-t-gray-200
       transition-opacity duration-500 ${
         isOpen
           ? "opacity-100 pointer-events-auto"
@@ -34,6 +44,7 @@ const CartModal = ({ isOpen = true, onClose }) => {
         className={`bg-white w-full max-w-[450px] h-full z-[1001] absolute right-0 transition-transform duration-500 ease-in-out overflow-y-scroll
         ${isOpen ? "translate-x-0" : "translate-x-[100%]"}`}
       >
+        <Note isOpen={isNoteOpen} onClose={closeNote} />
         <div className="flex flex-col px-8 h-[70%]">
           {products.map((data, id) => (
             <CartProduct
@@ -45,7 +56,10 @@ const CartModal = ({ isOpen = true, onClose }) => {
           ))}
         </div>
         <div className="">
-          <button className="w-full mb-6 p-2 border-t border-b border-gray-400 tracking-wider uppercase text-sm flex items-center justify-center gap-2 cursor-pointer">
+          <button
+            className="w-full mb-6 p-2 border-t border-b border-gray-400 tracking-wider uppercase text-sm flex items-center justify-center gap-2 cursor-pointer"
+            onClick={openNote}
+          >
             <GoPencil />
             <span> write a note</span>
           </button>

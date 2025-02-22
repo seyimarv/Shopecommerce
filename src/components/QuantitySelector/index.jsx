@@ -6,7 +6,7 @@ const QuantityButton = ({ onClick, disabled, ariaLabel, children }) => (
     onClick={onClick}
     disabled={disabled}
     aria-label={ariaLabel}
-    className="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-xl font-light cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+    className="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-xl font-light cursor-pointer disabled:cursor-not-allowed"
   >
     <span className="font-light text-lg">{children}</span>
   </button>
