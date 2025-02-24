@@ -8,7 +8,7 @@ const Note = ({ isOpen, onClose }) => {
   const [note, setNote] = useState("");
 
   return (
-    <Drawer isOpen={isOpen} onClose={onClose} position="bottom">
+    <Drawer isOpen={isOpen} onClose={onClose} position="bottom" absolute>
       <div className="max-w-sm mx-auto p-4">
         <TextArea
           id="message"

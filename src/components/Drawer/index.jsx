@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
+import cancelCursor from "../../assets/cancel-cursor";
 
 const Drawer = ({
   isOpen,
   onClose,
   position = "right",
+  absolute = false,
   children,
   wrapperClassName,
   className,
@@ -13,14 +15,17 @@ const Drawer = ({
   ...props
 }) => {
   const drawerRef = useRef();
+
   useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
+    if (!absolute) {
+      if (isOpen) {
+        document.body.classList.add("overflow-hidden");
+      } else {
+        document.body.classList.remove("overflow-hidden");
+      }
+      return () => document.body.classList.remove("overflow-hidden");
     }
-    return () => document.body.classList.remove("overflow-hidden");
-  }, [isOpen]);
+  }, [isOpen, absolute]);
 
   useOnClickOutside(drawerRef, onClose);
 
@@ -37,13 +42,15 @@ const Drawer = ({
   };
   const openClasses = {
     top: "translate-y-0",
-    right: "translate-x-0 ",
+    right: "translate-x-0",
     bottom: "translate-y-0",
   };
 
   return (
     <div
-      className={`fixed overflow-hidden h-full w-full z-[1000] transition-opacity duration-500 ${
+      className={`${
+        absolute ? "absolute" : "fixed"
+      } overflow-hidden h-full w-full z-[1000] transition-opacity duration-500 ${
         isOpen
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
@@ -66,6 +73,7 @@ const Drawer = ({
           isOpen ? "opacity-100" : "opacity-0"
         } ${overlayClassName}`}
         onClick={onClose}
+        style={{ cursor: `url(${cancelCursor}), auto` }}
       ></div>
     </div>
   );
@@ -75,6 +83,7 @@ Drawer.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func,
   position: PropTypes.oneOf(["top", "right", "bottom"]),
+  absolute: PropTypes.bool,
   children: PropTypes.node,
   wrapperClassName: PropTypes.string,
   className: PropTypes.string,
