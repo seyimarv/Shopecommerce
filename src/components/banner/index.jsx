@@ -8,8 +8,10 @@ import {
   FaPause,
   FaPlay,
 } from "react-icons/fa6";
+import useLayout from "../../hooks/useLayout";
 
 const Banner = ({ announcements }) => {
+  const { bannerRef } = useLayout();
   const splideRef = useRef(null);
   const [autoPlay, setAutoPlay] = useState(true);
 
@@ -39,7 +41,7 @@ const Banner = ({ announcements }) => {
   };
 
   return (
-    <div className="bg-secondary w-full py-4 relative">
+    <div className="bg-secondary w-full py-4 relative" ref={bannerRef}>
       <div className="container flex">
         <Splide
           ref={splideRef}

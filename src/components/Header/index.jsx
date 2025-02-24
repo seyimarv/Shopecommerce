@@ -7,25 +7,17 @@ import LinkDropdown from "../LinkDropdown";
 import logo from "../../assets/logo.png";
 import { CiUser, CiSearch, CiShoppingCart } from "react-icons/ci";
 import CurrencyPicker from "../CurrencyPicker";
-import CartModal from "../CartModal";
+import useLayout from "../../hooks/useLayout";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState("initial");
-  const [isCartOpen, setOpenCart] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const searchRef = useRef(null);
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-
-  const toggleCart = () => {
-    setOpenCart(!isCartOpen);
-  };
-
-  const closeCart = () => {
-    setOpenCart(false);
-  };
+  const { headerRef, openCart } = useLayout();
 
   useEffect(() => {
     if (isOpen) {
@@ -77,6 +69,7 @@ const Header = () => {
             ? "sticky top-0 opacity-100 shadow-lg translate-y-0"
             : "opacity-0 pointer-events-none translate-y-[-50%]"
         }`}
+        ref={headerRef}
       >
         <nav className="h-full flex justify-between w-full gap-4 items-center container">
           {/* Logo */}
@@ -124,7 +117,7 @@ const Header = () => {
             <li>
               <CiShoppingCart
                 size={20}
-                onClick={toggleCart}
+                onClick={openCart}
                 className="cursor-pointer"
               />
             </li>
@@ -133,7 +126,6 @@ const Header = () => {
       </header>
 
       {/* Cart Modal */}
-      <CartModal isOpen={isCartOpen} onClose={closeCart} />
     </>
   );
 };

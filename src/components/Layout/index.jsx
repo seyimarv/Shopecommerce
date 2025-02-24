@@ -2,8 +2,11 @@ import { Outlet } from "react-router";
 import Header from "../Header";
 import Footer from "../Footer";
 import Banner from "../banner";
+import useLayout from "../../hooks/useLayout";
+import CartModal from "../CartModal";
 
 const Layout = () => {
+  const { isCartOpen, closeCart } = useLayout();
   return (
     <div className="relative">
       <Banner
@@ -14,6 +17,7 @@ const Layout = () => {
           "🎉 New arrivals just dropped! Check them out now!",
         ]}
       />
+      <CartModal isOpen={isCartOpen} onClose={closeCart} />
       <Header />
       <Outlet />
       <Footer />

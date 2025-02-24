@@ -9,12 +9,19 @@ import Collections from "./Pages/Collections";
 import ProductsPage from "./Pages/ProductsPage";
 import Cart from "./Pages/Cart";
 import ProductPage from "./Pages/ProductPage";
+import { LayoutProvider } from "./Provider/LayoutContextProvider";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route element={<Layout />}>
+        <Route
+          element={
+            <LayoutProvider>
+              <Layout />
+            </LayoutProvider>
+          }
+        >
           <Route path="/" element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="create-account" element={<SignUp />} />

@@ -1,15 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
-import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { products } from "../../utils/mockData";
 import CartProduct from "../CartProduct";
 import { GoPencil } from "react-icons/go";
 import Button from "../button";
 import Note from "./Note";
+import Drawer from "../Drawer";
+import useLayout from "../../hooks/useLayout";
 
 const CartModal = ({ isOpen, onClose }) => {
-  const modalRef = useRef();
   const [isNoteOpen, setOpenNote] = useState(false);
+  const { topOffset } = useLayout();
+  console.log(topOffset);
 
   const openNote = () => {
     setOpenNote(true);
@@ -19,33 +21,34 @@ const CartModal = ({ isOpen, onClose }) => {
     setOpenNote(false);
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-    return () => document.body.classList.remove("overflow-hidden");
-  }, [isOpen]);
-
-  useOnClickOutside(modalRef, onClose);
-
   return (
-    <div
-      className={`fixed top-0 right-0 h-[calc(100vh-6.875rem)] mt-[6.875rem] w-full z-[1000] border border-t-gray-200
-      transition-opacity duration-500 ${
-        isOpen
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
-      }`}
-    >
-      <div
-        ref={modalRef}
-        className={`bg-white w-full max-w-[450px] h-full z-[1001] absolute right-0 transition-transform duration-500 ease-in-out overflow-y-scroll
-        ${isOpen ? "translate-x-0" : "translate-x-[100%]"}`}
+    // <div
+    //   className={`fixed h-[calc(100vh-6.875rem)] w-full z-[1000] border border-t-gray-200
+    //   transition-opacity duration-500 ${
+    //     isOpen
+    //       ? "opacity-100 pointer-events-auto"
+    //       : "opacity-0 pointer-events-none"
+    //   }`}
+    // >
+
+    //   <div
+    //     className={`bg-black/50 h-full transition-opacity duration-500 ${
+    //       isOpen ? "opacity-100" : "opacity-0"
+    //     }`}
+    //     onClick={onClose}
+    //   ></div>
+    // </div>
+    <>
+      <Drawer
+        isOpen={isOpen}
+        onClose={onClose}
+        style={{
+          top: `${topOffset}px`,
+          height: `calc(100vh - ${topOffset}px)`,
+        }}
       >
         <Note isOpen={isNoteOpen} onClose={closeNote} />
-        <div className="flex flex-col px-8 h-[70%]">
+        <div className="flex flex-col px-8 h-[72%]">
           {products.map((data, id) => (
             <CartProduct
               imgSrc={data.imgSrc}
@@ -77,14 +80,8 @@ const CartModal = ({ isOpen, onClose }) => {
             <Button variant="outline">view all</Button>
           </div>
         </div>
-      </div>
-      <div
-        className={`bg-black/50 h-full transition-opacity duration-500 ${
-          isOpen ? "opacity-100" : "opacity-0"
-        }`}
-        onClick={onClose}
-      ></div>
-    </div>
+      </Drawer>
+    </>
   );
 };
 
